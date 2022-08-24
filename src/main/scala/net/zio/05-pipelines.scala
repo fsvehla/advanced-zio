@@ -134,7 +134,7 @@ object Operators extends ZIOSpecDefault {
             .collect[String, Chunk[Byte]] {
               case string =>
                 Chunk.fromArray(string.getBytes(StandardCharsets.UTF_8))
-            } >>> ZPipeline.mapChunks(_.flatten)
+            } >>> ZPipeline.mapChunks[Chunk[Byte], Byte](_.flatten)
 
         def composed = utf8Encode >>> utf8Decode
 

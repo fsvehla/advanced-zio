@@ -340,7 +340,7 @@ object TestServices extends ZIOSpecDefault {
         test("Live") {
           for {
             now <- Clock.instant.map(_.getEpochSecond())
-          } yield assertTrue(now > 0)
+          } yield assertTrue(now > 0L)
         } @@ ignore
     }
 }
